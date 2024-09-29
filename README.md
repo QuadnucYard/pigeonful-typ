@@ -1,8 +1,12 @@
 # Pigeonful
 
-A typst package for creating splendid document similar to [研招网推免](https://yz.chsi.com.cn/tm/student/dlqtz/list.action) style.
+Are you dreaming of becoming a pigeon? Now let's start!
+
+This is a typst package for creating splendid document similar to [研招网推免](https://yz.chsi.com.cn/tm/student/dlqtz/list.action) style. Have fun!
 
 ## Examples
+
+All of the examples below derive from web images.
 
 ### KFC
 

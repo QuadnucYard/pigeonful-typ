@@ -1,13 +1,33 @@
 #let pigeonful(
   application-title: [志愿信息],
   entries: (:),
-  notice-title: [待录取通知],
-  notice-hint: [接受或拒绝待录取通知后，将无法更改。],
+  notice-kind: "dailuqu",
+  notice-title: auto,
+  notice-hint: auto,
   notice-body: [],
   notifier: [],
   acceptance: [],
   width: 768pt,
 ) = {
+  if notice-title == auto {
+    notice-title = if notice-kind == "fushi" {
+      [复试通知]
+    } else if notice-kind == "dailuqu" {
+      [待录取通知]
+    } else {
+      panic("unknown notice kind: " + str(notice-kind))
+    }
+  }
+  if notice-hint == auto {
+    notice-hint = if notice-kind == "fushi" {
+      [接受或拒绝复试通知后，将无法更改。]
+    } else if notice-kind == "dailuqu" {
+      [接受或拒绝待录取通知后，将无法更改。]
+    } else {
+      panic("unknown notice kind: " + str(notice-kind))
+    }
+  }
+
   /// Block with specific line height
   let line-block(body, height: auto) = {
     block(height: height, align(horizon, body))
@@ -21,12 +41,11 @@
   show: block.with(width: width)
 
   set block(spacing: 0pt)
-  border-block(
-    fill: rgb("#f9f9f9"),
-    inset: 10pt,
-  )[
+  // title
+  border-block(fill: rgb("#f9f9f9"), inset: 10pt)[
     #line-block(height: 17.5pt, text(fill: rgb("#50aac2"), strong(application-title)))
   ]
+  // description list
   border-block(inset: 10pt)[
     #set text(overhang: false)
     #show grid.cell.where(x: 0): set text(fill: rgb("#65696E"))
@@ -42,6 +61,7 @@
     )
     #v(7.5pt)
   ]
+  // 复试/待录取通知
   border-block(inset: 10pt)[
     #line-block(height: 16pt)[
       #text(fill: rgb("#c90"), strong(notice-title))
@@ -49,6 +69,7 @@
       #text(fill: rgb("#93989E"), notice-hint)
     ]
   ]
+  // notice details
   border-block(inset: 10pt)[
     #line-block(height: 22pt)[#text(fill: rgb("#848484"), notifier)]
 
