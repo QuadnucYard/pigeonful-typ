@@ -59,9 +59,9 @@
         stroke: rgb("#b2e2ea"),
         fill: rgb("#e5f2f8"),
       )[
-        #place(dx: 20pt, dy: -15pt)[
-          #place[#text(font: "SimSun", fill: rgb("#b2e2ea"))[◆]]
-          #place(dy: 1.4pt)[#text(font: "SimSun", fill: rgb("#e5f2f8"))[◆]]
+        #place(dx: 20pt, dy: -19pt)[
+          #place[#text(fill: rgb("#b2e2ea"), size: 23pt)[#sym.diamond.filled]]
+          #place(dy: 1.4pt)[#text(fill: rgb("#e5f2f8"), size: 23pt)[◆]]
         ]
         #v(3.5pt)
         #block[

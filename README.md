@@ -61,3 +61,5 @@ A typst package for creating splendid document similar to [研招网推免](http
 ## Usage
 
 See examples. You just need to fill in the relevant arguments of the `pigeonful` function.
+
+You may need a `Microsoft YaHei` font installment.
